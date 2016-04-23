@@ -8,7 +8,7 @@ Trying to unify and categorize all MSX games and programs.
 
 ###### Minimal index
 
-```
+```json
 {
 	"$schema": "https://raw.githubusercontent.com/nataliapc/metacatalog-msx/master/schemas/index.schema.json",
 	"header": {
@@ -41,7 +41,7 @@ Trying to unify and categorize all MSX games and programs.
 
 ###### Simple case with just a tape and several images
 
-```
+```json
 {
     "$schema": "https://raw.githubusercontent.com/nataliapc/metacatalog-msx/master/schemas/index.schema.json",
     "header": {
