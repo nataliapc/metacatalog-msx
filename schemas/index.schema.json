@@ -1,6 +1,6 @@
 {
 	"$schema": "http://json-schema.org/draft-04/schema#",
-	"id": "http://some.site.somewhere/entry-schema#",
+	"id": "https://raw.githubusercontent.com/nataliapc/metacatalog-msx/master/schemas/index.schema.json#",
 	"name": "metacatalog-msx",
 	"type": "object",
 	"title": "",
