@@ -1,0 +1,214 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"id": "http://some.site.somewhere/entry-schema#",
+	"name": "metacatalog-msx",
+	"type": "object",
+	"title": "",
+	"description": "Schema for metacatalog tape for old 8-bits computers",
+
+	"required": [ "header", "catalog", "content" ],
+
+	"properties": {
+		"header": { "$ref": "#/definitions/headerType" },
+		"catalog": { "$ref": "#/definitions/catalogType" },
+		"content": { "$ref": "#/definitions/contentType" },
+		"images": { "$ref": "#/definitions/imageArrayType" }
+	},
+
+	"definitions": {
+
+		"headerType": {
+			"description": "Header definition",
+			"type": "object",
+			"required": [ "mimecrc", "mimetype", "version" ],
+			"properties": {
+				"mimecrc": { "#ref": "#/definitions/crc32Type", "description": "CRC32 of mimetype" },
+				"mimetype": { "type": "string", "pattern": "^application\/x-metacatalog-(tape|rom|disk)$" },
+				"version": { "type": "string", "pattern": "^\\d+\\.\\d{1,2}\\.\\d{1,2}$" }
+			},
+			"additionalProperties": false
+		},
+
+
+		"catalogType": {
+			"description": "Catalog info definition",
+			"type": "object",
+			"required": [ "id", "updated", "platform", "kind", "name", "license" ],
+			"properties": {
+				"id": { "$ref": "#/definitions/idCatalogType" },
+				"updated": { "$ref": "#/definitions/datetimeType" },
+				"platform": { "enum": [ "MSX", "MSX2", "MSX2+", "Turbo-R", "MSX3" ] },
+				"kind": { "enum": [ "game", "application", "demoscene" ] },
+				"name": { "type": "string" },
+				"original.name": { "type": "string" },
+				"company": { "type": "string" },
+				"publisher": { "type": "string" },
+				"code": { "type": "string", "description": "Game serial code" },
+				"license": { "enum": [ "unknown", "copyleft", "commercial" ] },
+				"date": { "type": "integer", "minimum": 1982 },
+				"country": { "type": "string" },
+				"language": {
+					"type":"array",
+					"minItems": 1,
+					"uniqueItems": true,
+					"items": { "enum": [ "en", "jp", "es", "nl", "br", "fr", "it" ] }
+				},
+				"genre": {
+					"type":"array",
+					"minItems": 1,
+					"uniqueItems": true,
+					"items": { "enum": [ "action", "puzzle", "shooter", "arcade", "platforms", "strategy" ] }
+				},
+				"controls": {
+					"type":"array",
+					"minItems": 1,
+					"uniqueItems": true,
+					"items": { "enum": [ "keyboard", "joystick", "mouse" ] }
+				},
+				"authors": {
+					"type":"array",
+					"minItems": 1,
+					"uniqueItems": true,
+					"items": { "#ref": "#/definitions/authorType" }
+				},
+				"instructions": { "type": "string" },
+				"tips": { "$ref": "#/definitions/tipsType" },
+				"cheats": { "$ref": "#/definitions/cheatsType" }
+			},
+			"additionalProperties": false
+		},
+
+		"idCatalogType": {
+			"description": "Id for catalogType object",
+			"type": "object",
+			"required": [ "string", "crc32", "md5", "sha1" ],
+			"properties": {
+				"string": { "type": "string", "pattern": "^\\w+(|\\.\\w+)*$" },
+				"crc32" : { "#ref": "#/definitions/crc32Type" },
+				"md5": { "#ref": "#/definitions/md5Type" },
+				"sha1": { "#ref": "#/definitions/sha1Type" }
+			},
+			"additionalProperties": false
+		},
+
+		"authorType": {
+			"description": "",
+			"type": "object",
+			"required": [ "job", "name" ],
+			"properties": {
+				"job": { "type": "string" },
+				"name": { "type": "string" }
+			},
+			"additionalProperties": false
+		},
+
+
+		"contentType": {
+			"description": "Contenido del producto a catalogar",
+			"type": "array",
+			"minItems": 1,
+			"items": { "$rel": "#/definitions/contentItemType" }
+		},
+
+		"contentItemType": {
+			"type": "object",
+			"required": [ "id", "mimetype", "file" ],
+			"properties": {
+				"id": { "$rel": "#/definitions/idContentType" },
+				"mimetype": { "type": "string" },
+				"format": { "type": "string", "description": "Aditional content format info." },
+				"file": { "type": "string" },
+				"related.images": {
+					"description": "Imágenes relacionadas",
+					"type": "array",
+					"minItems": 1,
+					"uniqueItems": true,
+					"items": { "type": "string" }
+				},
+				"alternates": {
+					"type": "array",
+					"minItems": 1,
+					"uniqueItems": true,
+					"items": { "$rel": "#/definitions/contentAlternateType" }
+				}
+			},
+			"patternProperties": {
+				"^label(\\.[a-z]{2}){0,1}$": { "type": "string" },
+				"^comment(\\.[a-z]{2}){0,1}$": { "type": "string" }
+			},
+			"additionalProperties": false
+		},
+
+		"contentAlternateType": {
+			"type": "object",
+			"required": [ "id", "mimetype", "file" ],
+			"properties": {
+				"id": { "$rel": "#/definitions/idContentType" },
+				"mimetype": { "type": "string" },
+				"format": { "type": "string", "description": "Aditional content format info." },
+				"file": { "type": "string" },
+			},
+			"patternProperties": {
+				"^comment(\\.[a-z]{2}){0,1}$": { "type": "string" }
+			},
+			"additionalProperties": false
+		},
+
+		"idContentType": {
+			"type": "string",
+			"pattern": "^((tape\\d+(\\.side[A-Z](\\.part\\d+){0,1}){0,1})|(disk\\d+)|(rom\\d+))(\\.alt\\d+){0,1}$",
+			"description": "Use https://regex101.com to validate ids"
+		},
+
+
+		"tipsType": { "description": "Need definition" },
+
+
+		"cheatsType": { "description": "Need definition" },
+
+
+		"imageArrayType": {
+			"description": "",
+			"type": "array",
+			"minItems": 1,
+			"uniqueItems": true,
+			"items": { "$ref": "#/definitions/imageItemType" }
+		},
+
+		"imageItemType": {
+			"type": "object",
+			"required": [ "id", "file", "label" ],
+			"properties": {
+				"id": { "type": "string", "pattern": "^[a-zA-Z][\\w\\.]+[0-9a-zA-Z](|#restored)$" },
+				"file": { "type": "string" },
+				"default": { "type": "boolean" }
+			},
+			"patternProperties": {
+				"^label(\\.[a-z]{2}){0,1}$": { "type": "string" }
+			},
+			"additionalProperties": false
+		},
+
+
+		"datetimeType": {
+			"type": "string",
+			"pattern": "^\\d{4}(-\\d{2}){2}( \\d{2}(:\\d{2}){1,2}){0,1}$",
+			"description": "Date-time format 'YYYY-MM-DD [HH:MM:[SS]]'"
+		},
+		"crc32Type": {
+			"type": "string",
+			"pattern": "^[0-9a-f]{8}$",
+			"description": "To generate CRC32 use: http://hash-functions.online-domain-tools.com/"
+		},
+		"md5Type": {
+			"type": "string",
+			"pattern": "^[0-9a-f]{32}$",
+			"description": "To generate MD5 use: http://hash-functions.online-domain-tools.com/"
+		},
+		"sha1Type": {
+			"type": "string",
+			"pattern": "^[0-9a-f]{40}$",
+			"description": "To generate SHA1 use: http://hash-functions.online-domain-tools.com/"
+		}
+	}
+}
