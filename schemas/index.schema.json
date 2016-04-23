@@ -146,7 +146,7 @@
 				"id": { "$rel": "#/definitions/idContentType" },
 				"mimetype": { "type": "string" },
 				"format": { "type": "string", "description": "Aditional content format info." },
-				"file": { "type": "string" },
+				"file": { "type": "string" }
 			},
 			"patternProperties": {
 				"^comment(\\.[a-z]{2}){0,1}$": { "type": "string" }
