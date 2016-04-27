@@ -1,8 +1,8 @@
 # metacatalog-msx
 
-JSON Schema defining a metacatalog proposal for old 8-bits computers tapes, roms, disks, ...
+JSON Schema defining a metacatalog proposal for 8-bit-computer tapes, cartridges, disks...
 
-Trying to unify and categorize all MSX games and programs.
+Trying to unify and categorize all MSX software.
 
 ## Examples
 
@@ -120,13 +120,13 @@ Trying to unify and categorize all MSX games and programs.
         {
             "id": "screenshot.1",
             "file": "images/screenshot_1.png",
-            "label": "Game's screenshot",
+            "label": "Game screenshot",
             "label.es": "Pantallazo del juego"
         },
         {
             "id": "game.map",
             "file": "images/map.png",
-            "label": "Game's map",
+            "label": "Game map",
             "label.es": "Mapa del juego"
         }
     ],
