@@ -25,7 +25,7 @@ Trying to unify and categorize all MSX software.
 		},
 		"updated": "2016-12-22 11:19:50",
 		"platform": "MSX",
-		"kind": "game",
+		"type": "game",
 		"name": "MyGame",
 		"license": "commercial"
 	},
@@ -58,22 +58,22 @@ Trying to unify and categorize all MSX software.
         },
         "updated": "2016-12-22 11:19:50",
         "platform": "MSX",
-        "kind": "game",
-        "name": "MyGame",
-        "original.name": "MyGame original",
+        "type": "game",
+        "name": "MyGame name",
+        "name.original": "MyGame original name",
         "company": "MyCompany",
         "publisher": "MYPublisher",
         "license": "commercial",
         "date": 1986,
         "country": "Spain",
+        "genre": [
+            "action",
+            "puzzle"
+        ],
         "language": [
             "es",
             "en",
             "jp"
-        ],
-        "genre": [
-            "action",
-            "puzzle"
         ],
         "authors": [
             {
