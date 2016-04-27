@@ -4,7 +4,7 @@
 	"name": "metacatalog-msx",
 	"type": "object",
 	"title": "",
-	"description": "Schema for metacatalog tape for old 8-bits computers",
+	"description": "Schema for 8-bit-computer software metacataloguing",
 
 	"required": [ "header", "catalog", "content" ],
 
@@ -33,31 +33,32 @@
 		"catalogType": {
 			"description": "Catalog info definition",
 			"type": "object",
-			"required": [ "id", "updated", "platform", "kind", "name", "license" ],
+			"required": [ "id", "updated", "platform", "type", "name", "license" ],
 			"properties": {
 				"id": { "$ref": "#/definitions/idCatalogType" },
 				"updated": { "$ref": "#/definitions/datetimeType" },
 				"platform": { "enum": [ "MSX", "MSX2", "MSX2+", "Turbo-R", "MSX3" ] },
-				"kind": { "enum": [ "game", "application", "demoscene" ] },
+				"type": { "enum": [ "game", "application", "demoscene" ] },
 				"name": { "type": "string" },
-				"original.name": { "type": "string" },
+				"name.original": { "type": "string" },
+				"name.transliterated": { "type": "string" },
 				"company": { "type": "string" },
 				"publisher": { "type": "string" },
 				"code": { "type": "string", "description": "Game serial code" },
 				"license": { "enum": [ "unknown", "copyleft", "commercial" ] },
 				"date": { "type": "integer", "minimum": 1982 },
 				"country": { "type": "string" },
-				"language": {
-					"type":"array",
-					"minItems": 1,
-					"uniqueItems": true,
-					"items": { "enum": [ "en", "jp", "es", "nl", "br", "fr", "it" ] }
-				},
 				"genre": {
 					"type":"array",
 					"minItems": 1,
 					"uniqueItems": true,
 					"items": { "enum": [ "action", "puzzle", "shooter", "arcade", "platforms", "strategy" ] }
+				},
+				"language": {
+					"type":"array",
+					"minItems": 1,
+					"uniqueItems": true,
+					"items": { "enum": [ "en", "jp", "es", "nl", "br", "fr", "it" ] }
 				},
 				"controls": {
 					"type":"array",
