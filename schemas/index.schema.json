@@ -48,6 +48,12 @@
 				"license": { "enum": [ "unknown", "copyleft", "commercial" ] },
 				"date": { "type": "integer", "minimum": 1982 },
 				"country": { "type": "string" },
+				"sound": {
+					"type": "array",
+					"minItems": 1,
+					"uniqueItems": true,
+					"items": { "enum": [ "PSG", "SCC", "SCC+", "FMPAC", "MSX-Audio", "MSX-Music" ] }
+				},
 				"genre": {
 					"type":"array",
 					"minItems": 1,
