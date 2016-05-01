@@ -74,13 +74,20 @@
 				},
 				"authors": {
 					"type":"array",
-					"minItems": 1,
 					"uniqueItems": true,
 					"items": { "#ref": "#/definitions/authorType" }
 				},
 				"instructions": { "type": "string" },
-				"tips": { "$ref": "#/definitions/tipsType" },
-				"cheats": { "$ref": "#/definitions/cheatsType" }
+				"tips": {
+					"type":"array",
+					"uniqueItems": true,
+					"items": { "$ref": "#/definitions/tipsType" }
+				},
+				"cheats": {
+					"type":"array",
+					"uniqueItems": true,
+					"items": { "$ref": "#/definitions/cheatsType" }
+				}
 			},
 			"additionalProperties": false
 		},
@@ -170,7 +177,18 @@
 		},
 
 
-		"tipsType": { "description": "Need definition" },
+		"tipsType": {
+			"description": "Tips item",
+			"type": "object",
+			"required": [ "label", "text" ],
+			"properties": {
+				"text": { "type": "string" },
+			},
+			"patternProperties": {
+				"^label(\\.[a-z]{2}){0,1}$": { "type": "string" }
+			},
+			"additionalProperties": false
+		},
 
 
 		"cheatsType": { "description": "Need definition" },
