@@ -52,7 +52,7 @@
 					"type": "array",
 					"minItems": 1,
 					"uniqueItems": true,
-					"items": { "enum": [ "PSG", "SCC", "SCC+", "FMPAC", "MSX-Audio", "MSX-Music" ] }
+					"items": { "enum": [ "PSG", "MSX-Music", "SCC", "SCC+", "MSX-Audio", "OPL4" ] }
 				},
 				"genre": {
 					"type":"array",
