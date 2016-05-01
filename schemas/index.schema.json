@@ -180,12 +180,10 @@
 		"tipsType": {
 			"description": "Tips item",
 			"type": "object",
-			"required": [ "label", "text" ],
-			"properties": {
-				"text": { "type": "string" }
-			},
+			"required": [ "label", "description" ],
 			"patternProperties": {
-				"^label(\\.[a-z]{2}){0,1}$": { "type": "string" }
+				"^label(\\.[a-z]{2}){0,1}$": { "type": "string" },
+				"^description(\\.[a-z]{2}){0,1}$": { "type": "string" }
 			},
 			"additionalProperties": false
 		},
