@@ -125,6 +125,7 @@
 				"mimetype": { "type": "string" },
 				"format": { "type": "string", "description": "Aditional content format info." },
 				"file": { "type": "string" },
+				"hash": { "$rel": "#/definitions/hashType" },
 				"related.images": {
 					"description": "Imágenes relacionadas",
 					"type": "array",
@@ -153,7 +154,8 @@
 				"id": { "$rel": "#/definitions/idContentType" },
 				"mimetype": { "type": "string" },
 				"format": { "type": "string", "description": "Aditional content format info." },
-				"file": { "type": "string" }
+				"file": { "type": "string" },
+				"hash": { "$rel": "#/definitions/hashType" }
 			},
 			"patternProperties": {
 				"^comment(\\.[a-z]{2}){0,1}$": { "type": "string" }
@@ -216,6 +218,17 @@
 			"type": "string",
 			"pattern": "^[0-9a-f]{40}$",
 			"description": "To generate SHA1 use: http://hash-functions.online-domain-tools.com/"
+		},
+		"hashType": {
+			"description": "File hash",
+			"type": "object",
+			"required": [ "crc32", "md5", "sha1" ],
+			"properties": {
+				"crc32" : { "#ref": "#/definitions/crc32Type" },
+				"md5": { "#ref": "#/definitions/md5Type" },
+				"sha1": { "#ref": "#/definitions/sha1Type" }
+			},
+			"additionalProperties": false
 		}
 	}
 }
