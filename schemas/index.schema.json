@@ -211,7 +211,7 @@
 						{ "type": "string", "pattern": "^scan\\.disk\\d+$" },
 						{ "type": "string", "pattern": "^scan\\.rom$" },
 						{ "type": "string", "pattern": "^scan\\.manual\\d+$" },
-						{ "type": "string", "pattern": "^custom\\.gamemap$" }
+						{ "type": "string", "pattern": "^custom\\.(coverhd|gamemap)$" }
 					]
 				},
 				"file": { "type": "string" },
