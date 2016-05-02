@@ -52,13 +52,13 @@
 					"type": "array",
 					"minItems": 1,
 					"uniqueItems": true,
-					"items": { "enum": [ "PSG", "MSX-Music", "SCC", "SCC+", "MSX-Audio", "OPL4" ] }
+					"items": { "enum": [ "PSG", "OPLL", "SCC", "SCC+", "MSX-Audio", "OPL4" ] }
 				},
 				"genre": {
 					"type":"array",
 					"minItems": 1,
 					"uniqueItems": true,
-					"items": { "enum": [ "action", "puzzle", "shooter", "arcade", "platforms", "strategy" ] }
+					"items": { "enum": [ "action", "puzzle", "shooter", "arcade", "platforms", "strategy", "others" ] }
 				},
 				"language": {
 					"type":"array",
@@ -72,10 +72,10 @@
 					"uniqueItems": true,
 					"items": { "enum": [ "keyboard", "joystick", "mouse" ] }
 				},
-				"authors": {
+				"developers": {
 					"type":"array",
 					"uniqueItems": true,
-					"items": { "#ref": "#/definitions/authorType" }
+					"items": { "#ref": "#/definitions/developerType" }
 				},
 				"instructions": { "type": "string" },
 				"tips": {
@@ -105,13 +105,13 @@
 			"additionalProperties": false
 		},
 
-		"authorType": {
+		"developerType": {
 			"description": "",
 			"type": "object",
-			"required": [ "job", "name" ],
+			"required": [ "name", "task" ],
 			"properties": {
-				"job": { "type": "string" },
-				"name": { "type": "string" }
+				"name": { "type": "string" },
+				"task": { "type": "string" }
 			},
 			"additionalProperties": false
 		},
@@ -204,7 +204,16 @@
 			"type": "object",
 			"required": [ "id", "file", "label" ],
 			"properties": {
-				"id": { "type": "string", "pattern": "^[a-zA-Z][\\w\\.]+[0-9a-zA-Z](|#restored)$" },
+				"id": {
+					"anyOf": [
+						{ "type": "string", "pattern": "^screen\\.(loading|ingame\\.(menu|end|\\d+))$" },
+						{ "type": "string", "pattern": "^scan\\.tape\\d+\\.(inlay(Front|Back)|side[A-B])$" },
+						{ "type": "string", "pattern": "^scan\\.disk\\d+$" },
+						{ "type": "string", "pattern": "^scan\\.rom$" },
+						{ "type": "string", "pattern": "^scan\\.manual\\d+$" },
+						{ "type": "string", "pattern": "^custom\\.gamemap$" }
+					]
+				},
 				"file": { "type": "string" },
 				"default": { "type": "boolean" }
 			},
