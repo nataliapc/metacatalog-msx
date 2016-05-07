@@ -83,53 +83,55 @@ Trying to unify and categorize all MSX software.
         ],
         "instructions": "plain text with the cover text"
     },
-    "images": [
-        {
-            "id": "tape.cover",
-            "file": "images/cover1.jpg",
-            "label": ""
-        },
-        {
-            "id": "tape.back",
-            "file": "images/back1.jpg",
-            "label": ""
-        },
-        {
-            "id": "tape.sideA",
-            "file": "images/tape1SideA.jpg",
-            "label": ""
-        },
-        {
-            "id": "tape.cover#restored",
-            "default": true,
-            "file": "images/cover.restored.jpg",
-            "label": ""
-        },
-        {
-            "id": "manual.page1",
-            "file": "images/manual_1.png",
-            "label": "Manual page 1",
-            "label.es": "Manual página 1"
-        },
-        {
-            "id": "manual.page2",
-            "file": "images/manual_2.png",
-            "label": "Manual page 2",
-            "label.es": "Manual página 2"
-        },
-        {
-            "id": "screenshot.1",
-            "file": "images/screenshot_1.png",
-            "label": "Game screenshot",
-            "label.es": "Pantallazo del juego"
-        },
-        {
-            "id": "game.map",
-            "file": "images/map.png",
-            "label": "Game map",
-            "label.es": "Mapa del juego"
-        }
-    ],
+    "extras": {
+        "images": [
+            {
+                "id": "tape.cover",
+                "file": "images/cover1.jpg",
+                "label": ""
+            },
+            {
+                "id": "tape.back",
+                "file": "images/back1.jpg",
+                "label": ""
+            },
+            {
+                "id": "tape.sideA",
+                "file": "images/tape1SideA.jpg",
+                "label": ""
+            },
+            {
+                "id": "tape.cover#restored",
+                "default": true,
+                "file": "images/cover.restored.jpg",
+                "label": ""
+            },
+            {
+                "id": "manual.page1",
+                "file": "images/manual_1.png",
+                "label": "Manual page 1",
+                "label.es": "Manual página 1"
+            },
+            {
+                "id": "manual.page2",
+                "file": "images/manual_2.png",
+                "label": "Manual page 2",
+                "label.es": "Manual página 2"
+            },
+            {
+                "id": "screenshot.1",
+                "file": "images/screenshot_1.png",
+                "label": "Game screenshot",
+                "label.es": "Pantallazo del juego"
+            },
+            {
+                "id": "game.map",
+                "file": "images/map.png",
+                "label": "Game map",
+                "label.es": "Mapa del juego"
+            }
+        ]
+    },
     "content": [
         {
             "id": "tape1.sideA",
