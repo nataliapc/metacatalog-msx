@@ -79,17 +79,7 @@
 					"uniqueItems": true,
 					"items": { "#ref": "#/definitions/developerType" }
 				},
-				"instructions": { "type": "string" },
-				"tips": {
-					"type":"array",
-					"uniqueItems": true,
-					"items": { "$ref": "#/definitions/tipsType" }
-				},
-				"cheats": {
-					"type":"array",
-					"uniqueItems": true,
-					"items": { "$ref": "#/definitions/cheatsType" }
-				}
+				"instructions": { "type": "string" }
 			},
 			"additionalProperties": false
 		},
@@ -195,11 +185,21 @@
 
 
 		"extrasType": {
-			"description": "Extra contents",
+			"description": "Extra content",
 			"type": "object",
 			"properties": {
 				"maintheme": { "type": "string" },
-				"images": { "$ref": "#/definitions/imageArrayType" }
+				"images": { "$ref": "#/definitions/imageArrayType" },
+				"tips": {
+					"type":"array",
+					"uniqueItems": true,
+					"items": { "$ref": "#/definitions/tipsType" }
+				},
+				"cheats": {
+					"type":"array",
+					"uniqueItems": true,
+					"items": { "$ref": "#/definitions/cheatsType" }
+				}
 			},
 			"additionalProperties": false
 		},
