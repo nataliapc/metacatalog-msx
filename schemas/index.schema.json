@@ -7,12 +7,13 @@
 	"description": "Schema for 8-bit-computer software metacataloguing",
 
 	"required": [ "header", "catalog", "content" ],
+	"additionalProperties": false,
 
 	"properties": {
 		"header": { "$ref": "#/definitions/headerType" },
 		"catalog": { "$ref": "#/definitions/catalogType" },
 		"content": { "$ref": "#/definitions/contentType" },
-		"images": { "$ref": "#/definitions/imageArrayType" }
+		"extras": { "$ref": "#/definitions/extrasType" }
 	},
 
 	"definitions": {
@@ -192,8 +193,19 @@
 		"cheatsType": { "description": "Need definition" },
 
 
+		"extrasType": {
+			"description": "Extra contents",
+			"type": "object",
+			"properties": {
+				"maintheme": { "type": "string" },
+				"images": { "$ref": "#/definitions/imageArrayType" }
+			},
+			"additionalProperties": false
+		},
+
+
 		"imageArrayType": {
-			"description": "",
+			"description": "Tip for launchers: get main game image in this order by availability 'screen.loading', 'screen.ingame.menu', 'screen.ingame.1', and the image with true default attribute.",
 			"type": "array",
 			"minItems": 1,
 			"uniqueItems": true,
