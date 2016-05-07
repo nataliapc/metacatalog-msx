@@ -9,6 +9,7 @@
 	"required": [ "header", "catalog", "content" ],
 
 	"properties": {
+		"$schema": { "type": "string" },
 		"header": { "$ref": "#/definitions/headerType" },
 		"catalog": { "$ref": "#/definitions/catalogType" },
 		"content": { "$ref": "#/definitions/contentType" },
