@@ -12,7 +12,7 @@
 		"$schema": { "type": "string" },
 		"header": { "$ref": "#/definitions/headerType" },
 		"catalog": { "$ref": "#/definitions/catalogType" },
-		"content": { "$ref": "#/definitions/contentType" },
+		"content": { "$ref": "#/definitions/contentArrayType" },
 		"extras": { "$ref": "#/definitions/extrasType" }
 	},
 	"additionalProperties": false,
@@ -109,7 +109,7 @@
 		},
 
 
-		"contentType": {
+		"contentArrayType": {
 			"description": "Contenido del producto a catalogar",
 			"type": "array",
 			"minItems": 1,
@@ -118,13 +118,13 @@
 
 		"contentItemType": {
 			"type": "object",
-			"required": [ "id", "mimetype", "file" ],
+			"required": [ "id", "mimetype", "file", "hash.sha1" ],
 			"properties": {
 				"id": { "$rel": "#/definitions/idContentType" },
 				"mimetype": { "type": "string" },
 				"format": { "type": "string", "description": "Aditional content format info." },
 				"file": { "type": "string" },
-				"hash": { "$rel": "#/definitions/hashType" },
+				"hash.sha1": { "#ref": "#/definitions/sha1Type" },
 				"related.images": {
 					"description": "Imágenes relacionadas",
 					"type": "array",
@@ -148,13 +148,13 @@
 
 		"contentAlternateType": {
 			"type": "object",
-			"required": [ "id", "mimetype", "file" ],
+			"required": [ "id", "mimetype", "file", "hash.sha1" ],
 			"properties": {
 				"id": { "$rel": "#/definitions/idContentType" },
 				"mimetype": { "type": "string" },
 				"format": { "type": "string", "description": "Aditional content format info." },
 				"file": { "type": "string" },
-				"hash": { "$rel": "#/definitions/hashType" }
+				"hash.sha1": { "#ref": "#/definitions/sha1Type" }
 			},
 			"patternProperties": {
 				"^comment(\\.[a-z]{2}){0,1}$": { "type": "string" }
@@ -200,7 +200,7 @@
 
 		"imageItemType": {
 			"type": "object",
-			"required": [ "id", "file", "label" ],
+			"required": [ "id", "file", "hash.sha1", "label" ],
 			"properties": {
 				"id": {
 					"anyOf": [
@@ -213,6 +213,7 @@
 					]
 				},
 				"file": { "type": "string" },
+				"hash.sha1": { "#ref": "#/definitions/sha1Type" },
 				"default": { "type": "boolean" }
 			},
 			"patternProperties": {
