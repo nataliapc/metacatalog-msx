@@ -60,7 +60,7 @@
 					"type":"array",
 					"minItems": 1,
 					"uniqueItems": true,
-					"items": { "enum": [ "action", "puzzle", "shooter", "arcade", "platforms", "strategy", "others" ] }
+					"items": { "enum": [ "action", "adventure", "puzzle", "shooter", "arcade", "platforms", "strategy", "others" ] }
 				},
 				"language": {
 					"type":"array",
