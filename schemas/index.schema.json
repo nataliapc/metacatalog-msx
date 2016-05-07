@@ -169,21 +169,6 @@
 		},
 
 
-		"tipsType": {
-			"description": "Tips item",
-			"type": "object",
-			"required": [ "label", "description" ],
-			"patternProperties": {
-				"^label(\\.[a-z]{2}){0,1}$": { "type": "string" },
-				"^description(\\.[a-z]{2}){0,1}$": { "type": "string" }
-			},
-			"additionalProperties": false
-		},
-
-
-		"cheatsType": { "description": "Need definition" },
-
-
 		"extrasType": {
 			"description": "Extra content",
 			"type": "object",
@@ -235,6 +220,21 @@
 			},
 			"additionalProperties": false
 		},
+
+
+		"tipsType": {
+			"description": "Tips item",
+			"type": "object",
+			"required": [ "label", "description" ],
+			"patternProperties": {
+				"^label(\\.[a-z]{2}){0,1}$": { "type": "string" },
+				"^description(\\.[a-z]{2}){0,1}$": { "type": "string" }
+			},
+			"additionalProperties": false
+		},
+
+
+		"cheatsType": { "description": "Need definition" },
 
 
 		"datetimeType": {
