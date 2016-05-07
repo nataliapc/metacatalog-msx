@@ -2,12 +2,11 @@
 	"$schema": "http://json-schema.org/draft-04/schema#",
 	"id": "https://raw.githubusercontent.com/nataliapc/metacatalog-msx/master/schemas/index.schema.json#",
 	"name": "metacatalog-msx",
-	"type": "object",
 	"title": "",
+	"type": "object",
 	"description": "Schema for 8-bit-computer software metacataloguing",
 
 	"required": [ "header", "catalog", "content" ],
-	"additionalProperties": false,
 
 	"properties": {
 		"header": { "$ref": "#/definitions/headerType" },
@@ -15,6 +14,7 @@
 		"content": { "$ref": "#/definitions/contentType" },
 		"extras": { "$ref": "#/definitions/extrasType" }
 	},
+	"additionalProperties": false,
 
 	"definitions": {
 
