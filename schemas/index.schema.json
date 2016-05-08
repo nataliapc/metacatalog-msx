@@ -89,7 +89,7 @@
 			"type": "object",
 			"required": [ "string", "crc32", "md5", "sha1" ],
 			"properties": {
-				"string": { "type": "string", "pattern": "^\\w+(|\\.\\w+)*$" },
+				"string": { "type": "string", "pattern": "^\\w+(|\\.[\\w,]+)*$" },
 				"crc32" : { "#ref": "#/definitions/crc32Type" },
 				"md5": { "#ref": "#/definitions/md5Type" },
 				"sha1": { "#ref": "#/definitions/sha1Type" }
