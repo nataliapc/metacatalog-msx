@@ -208,7 +208,7 @@
 						{ "type": "string", "pattern": "^screen\\.(loading|ingame\\.(menu|end|\\d+))$" },
 						{ "type": "string", "pattern": "^scan\\.tape\\d+\\.(inlay(Front|Back)|side[A-B])$" },
 						{ "type": "string", "pattern": "^scan\\.disk\\d+$" },
-						{ "type": "string", "pattern": "^scan\\.rom\\.(inlay(Front|Back)$" },
+						{ "type": "string", "pattern": "^scan\\.rom\\.(inlay(Front|Back))$" },
 						{ "type": "string", "pattern": "^scan\\.manual\\d+$" },
 						{ "type": "string", "pattern": "^custom\\.(coverhd|gamemap)$" }
 					]
