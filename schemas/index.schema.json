@@ -25,7 +25,7 @@
 			"required": [ "mimecrc", "mimetype", "version" ],
 			"properties": {
 				"mimecrc": { "#ref": "#/definitions/crc32Type", "description": "CRC32 of mimetype" },
-				"mimetype": { "type": "string", "pattern": "^application\/x-metacatalog-(tape|rom|disk)$" },
+				"mimetype": { "type": "string", "pattern": "^application\/x-metacatalog-(tape|cartridge|disk)$" },
 				"version": { "type": "string", "pattern": "^\\d+\\.\\d{1,2}\\.\\d{1,2}$" }
 			},
 			"additionalProperties": false
@@ -208,7 +208,7 @@
 						{ "type": "string", "pattern": "^screen\\.(loading|ingame\\.(menu|end|\\d+))$" },
 						{ "type": "string", "pattern": "^scan\\.tape\\d+\\.(inlay(Front|Back)|side[A-B])$" },
 						{ "type": "string", "pattern": "^scan\\.disk\\d+$" },
-						{ "type": "string", "pattern": "^scan\\.rom$" },
+						{ "type": "string", "pattern": "^scan\\.rom\\.(inlay(Front|Back)$" },
 						{ "type": "string", "pattern": "^scan\\.manual\\d+$" },
 						{ "type": "string", "pattern": "^custom\\.(coverhd|gamemap)$" }
 					]
