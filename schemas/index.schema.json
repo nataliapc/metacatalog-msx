@@ -164,8 +164,11 @@
 		},
 
 		"idContentType": {
-			"type": "string",
-			"pattern": "^((tape\\d+(\\.side[A-Z](\\.part\\d+){0,1}){0,1})|(disk\\d+)|(rom\\d+))(\\.alt\\d+){0,1}$",
+			"oneOf": [
+				{ "type": "string", "pattern": "^tape\\d+(\\.side[A-Z](\\.part\\d+){0,1}){0,1}$(\\.alt\\d+){0,1}" },
+				{ "type": "string", "pattern": "^disk\\d+(\\.alt\\d+){0,1}$" },
+				{ "type": "string", "pattern": "^rom\\d+(\\.alt\\d+){0,1}$" }
+			],
 			"description": "Use https://regex101.com to validate ids"
 		},
 
