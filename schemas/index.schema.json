@@ -127,6 +127,7 @@
 				"format": { "type": "string", "description": "Aditional content format info." },
 				"file": { "$ref": "#/definitions/contentFileType" },
 				"hash.sha1": { "#ref": "#/definitions/sha1Type" },
+				"start.command": { "type": "string", "description": "BLOAD or RUN commands" },
 				"related.images": {
 					"description": "Imágenes relacionadas",
 					"type": "array",
