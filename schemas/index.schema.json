@@ -39,7 +39,7 @@
 			"properties": {
 				"id": { "$ref": "#/definitions/idCatalogType" },
 				"updated": { "$ref": "#/definitions/datetimeType" },
-				"platform": { "enum": [ "MSX", "MSX2", "MSX2+", "Turbo-R", "MSX3" ] },
+				"platform": { "enum": [ "MSX", "MSX2", "MSX2+", "Turbo-R" ] },
 				"type": { "enum": [ "game", "application", "demoscene" ] },
 				"name": { "type": "string" },
 				"name.original": { "type": "string" },
